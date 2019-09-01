@@ -35,7 +35,7 @@ def msg_reply(msg):
     else:
         print(msg)
         response = ConnectTuling.postMsg(msg['Content'],msg['FromUserName'][1:32])
-        return '[图灵AI-助手自动回复]'+response
+        return '[AI-助手自动回复]'+response
 
 def main():
     itchat.auto_login(enableCmdQR=2)
