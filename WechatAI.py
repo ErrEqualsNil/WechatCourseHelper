@@ -7,9 +7,9 @@ import DailyInfo
 
 @itchat.msg_register([itchat.content.TEXT])
 def msg_reply(msg):
+    print(msg)
     today = TimeControler.getTodayStr()
     if msg['ToUserName'] == 'filehelper':
-        print(msg)
         if msg['Content'] == '课表':
             itchat.send(TimeControler.get_daily_msg(today),'filehelper')
         elif re.match(r'课表 \d\d\d\d \d\d \d\d',msg['Content']):
@@ -33,7 +33,6 @@ def msg_reply(msg):
         elif msg['Content'] == "事项":
             itchat.send(DailyInfo.checkReturnMsg(today),'filehelper')
     else:
-        print(msg)
         response = ConnectTuling.postMsg(msg['Content'],msg['FromUserName'][1:32])
         return '[AI-助手自动回复]'+response
 
