@@ -37,7 +37,7 @@ def msg_reply(msg):
         return '[AI-助手自动回复]'+response
 
 def main():
-    itchat.auto_login(enableCmdQR = True)
+    itchat.auto_login(enableCmdQR = 3)
     timeDelta,isToday = TimeControler.get_interval_secs("080000")
     today = TimeControler.getTodayStr()
     tomorrow = TimeControler.getTomorrowStr()
